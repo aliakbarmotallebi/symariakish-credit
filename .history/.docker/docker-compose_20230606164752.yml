@@ -10,8 +10,6 @@ services:
     depends_on:
       - php
       - mysql
-    networks:
-        - app_network
 
   php:
     build: ./.docker/php
@@ -20,9 +18,6 @@ services:
       - ./:/var/www/
     depends_on:
       - mysql
-    networks:
-      - app_network
-      
 
   mysql:
     image: mysql:latest
@@ -33,22 +28,18 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=symariakish
-      - MYSQL_USER=secret
-      - MYSQL_PASSWORD=secret
-    networks:
-      - app_network
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
     ports:
-      - 8282:80
+      - 8080:80
     environment:
       - PMA_HOST=mysql
     depends_on:
       - mysql
-    networks:
-      - app_network  
 
   encore:
     tty: true
@@ -60,9 +51,3 @@ services:
       - nginx
       - php
       - mysql
-    networks:
-      - app_network
-
-networks:
-  app_network:
-    driver: bridge
