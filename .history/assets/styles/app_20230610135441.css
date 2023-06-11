@@ -1,0 +1,25 @@
+@import "./font-style.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    @apply font-iransans bg-main text-textMain !scroll-smooth;
+  }
+  img {
+    @apply w-full h-full;
+  }
+}
+
+/* @layer components {
+  .card {
+      @apply bg-white rounded-xl;
+  }
+  .modal-layout {
+      @apply fixed bg-black/30 w-full h-full left-0 top-0 z-50 backdrop-blur-sm flex items-center justify-center;
+  }
+  .modal-content {
+      @apply w-full;
+  }
+} */

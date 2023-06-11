@@ -1,0 +1,19 @@
+{% extends 'layouts/_base.html.twig' %}
+
+{% block title %}
+ورود به حساب مدیریت
+{% endblock %}
+
+{% block body %}
+	<section {{ attributes }}>    
+        <header class="bg-primary overflow-hidden w-full">
+            <div class="max-w-2xl container mx-auto h-28 relative">
+                <div class="h-28 w-40 absolute left-0">
+                    <img src="./assets/images/flag.png" alt="flag" />
+                </div>
+            </div>
+        </header>
+        {% block content %}{% endblock %}
+    </section>
+{% endblock %}
+
